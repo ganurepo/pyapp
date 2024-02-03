@@ -7,12 +7,12 @@ pipeline {
                 echo 'building..'
                 sh 'pwd'
                 sh 'ls'
-                script {
-                     dir('funtionone') {
+                node {
+                    
                      def files = findFiles() 
                      echo "This is a directory: ${files}"
                 }       
-                }
+                
             }
         }
 
