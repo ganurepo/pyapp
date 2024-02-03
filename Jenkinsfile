@@ -8,7 +8,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 script {
-                    String files = findFiles(glob: "**/*function*")
+                    def files = findFiles() 
                 }
             }
         }
