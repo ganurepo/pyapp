@@ -8,7 +8,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 script {
-                    def rpmFiles = findFiles(glob: "**/*function*")
+                    String files = findFiles(glob: "**/*function*")
                 }
             }
         }
