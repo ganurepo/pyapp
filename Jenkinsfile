@@ -7,13 +7,9 @@ pipeline {
                 echo 'building..'
                 sh 'pwd'
                 sh 'ls'
-                node {
-                    
-                     def files = findFiles() 
-                     echo "This is a directory: ${files}"
-                }       
-                
-            }
+                script {
+                    def rpmFiles = findFiles(glob: "**/*function*")
+                }
         }
 
         stage('Test') {
