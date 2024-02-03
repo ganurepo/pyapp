@@ -5,9 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building..'
-
+                sh 'pwd'
+                sh 'ls'
                 script {
-                     dir('mydir') {
+                     dir('funtionone') {
                      def files = findFiles() 
                      echo "This is a directory: ${files}"
                 }       
