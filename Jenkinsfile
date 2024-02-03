@@ -5,7 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building..'
-                sh 'python3 --version'
+
+                script {
+                     dir('mydir') {
+                     def files = findFiles() 
+                     echo "This is a directory: ${files}"
+                }       
+                }
             }
         }
 
