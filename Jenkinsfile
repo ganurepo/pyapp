@@ -7,7 +7,7 @@ pipeline {
                 echo 'building..'
                 sh 'pwd'
                 sh 'ls'
-                script {
+                node {
                     def files = findFiles() 
                 }
             }
