@@ -1,8 +1,7 @@
 pipeline {
     agent {
    
-      label "docker && linux" 
-      image "python:3.7"
+      any
     
     }
 
@@ -21,6 +20,7 @@ pipeline {
                 echo 'change in pipeline'
                 sh 'mkdir build'
                 sh 'cd build'
+                sh 'python3 --version'
                 sh 'pip install -r requirements.txt target=build'
                 sh 'ls build'
                 script {
