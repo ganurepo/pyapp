@@ -7,9 +7,9 @@ pipeline {
                 echo 'building..'
                 sh 'pwd'
                 sh 'ls'
-                echo '${env.WORKSPACE}'
+                echo 'change in pipeline'
                 script {
-                     filesByGlob = findFiles(glob: "*function*");
+                     filesByGlob = findFiles(glob: "**");
                 }
 
             }
