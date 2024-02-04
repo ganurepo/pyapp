@@ -1,17 +1,7 @@
 pipeline {
-    agent {
-   
-      any
-    
-    }
+    agent any
 
     stages {
-         stage('Py') {
-            steps {
-                sh 'pip --version'
-            }
-         }
-
         stage('Build') {
             steps {
                 echo 'building..'
