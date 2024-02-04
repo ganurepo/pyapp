@@ -10,6 +10,7 @@ pipeline {
                 echo 'change in pipeline'
                 script {
                      filesByGlob = findFiles(glob: "**");
+                     echo filesByGlob
                 }
 
             }
