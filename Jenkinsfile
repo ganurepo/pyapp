@@ -9,16 +9,13 @@ pipeline {
                 sh 'ls'
                 echo 'change in pipeline'
 
-                step {
-                    def path = "${workspace}\builds"
-                    fileOperations([folderCreateOperation(folderPath: path)])
-                }
-                
-
-                sh 'ls'
+               
                 script {
+                     def path = "${workspace}\builds"
+                     fileOperations([folderCreateOperation(folderPath: path)])
                      filesByGlob = findFiles(glob: "*function*");
                      echo "${filesByGlob}"
+                     sh 'ls'
                 }
             }
         }
