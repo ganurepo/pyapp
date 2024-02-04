@@ -5,17 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building..'
-                sh 'pwd'
-                sh 'ls'
-                echo 'change in pipeline'
-
-               
+                sh 'pwd'               
                 script {
                      def path = "${workspace}\builds"
                      fileOperations([folderCreateOperation(folderPath: path)])
-                     filesByGlob = findFiles(glob: "*function*");
+                     filesByGlob = findFiles(glob: "**function**");
                      echo "${filesByGlob}"
                      sh 'ls'
+                     sh 'python3 --version'
                 }
             }
         }
