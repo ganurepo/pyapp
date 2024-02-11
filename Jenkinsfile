@@ -15,7 +15,7 @@ pipeline {
                      
                      files = findFiles();
                      files.each { f -> 
-                      if (f.directory && f.) {
+                      if (f.directory) {
                          echo "This is a directory: ${f.name}"
                          if(f.name != '.git')
                          {
