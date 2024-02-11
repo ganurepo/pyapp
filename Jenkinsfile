@@ -8,7 +8,7 @@ pipeline {
                 sh 'pwd'
                 sh 'mkdir -p builds/packages'
                 sh 'cd builds'
-                sh 'pip install -r requirements.txt /packages'
+                sh 'pip install -r requirements.txt -t packages'
                 sh 'ls packages'              
                 script {
                      def path = "${workspace}\builds"
@@ -23,7 +23,7 @@ pipeline {
                           sh """ 
                           #!/bin/bash
                           mkdir ${dirname}
-                          
+
                           ls -l
                           """ 
                           sh 'pwd'
