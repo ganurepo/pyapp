@@ -13,8 +13,13 @@ pipeline {
                      pwd
                      sh 'cd ${path}'
                      
-                     filesByGlob = findFiles(glob: "*function*");
-                     echo "${filesByGlob}"
+                     files = findFiles();
+                     files.each { f -> 
+                      if (f.directory) {
+                         echo "This is a directory: ${f.name}"
+                      }
+                    }
+                     echo "${files}"
                      sh 'ls'
                      sh 'python3 --version'
                 }
