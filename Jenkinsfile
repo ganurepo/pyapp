@@ -9,8 +9,10 @@ pipeline {
                 script {
                      def path = "${workspace}\builds"
                      fileOperations([folderCreateOperation(folderPath: path)])
-                     cd path
+                     echo '${path}'
                      pwd
+                     sh 'cd ${path}'
+                     
                      filesByGlob = findFiles(glob: "*function*");
                      echo "${filesByGlob}"
                      sh 'ls'
