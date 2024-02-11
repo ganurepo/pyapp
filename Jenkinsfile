@@ -9,7 +9,9 @@ pipeline {
                 script {
                      def path = "${workspace}\builds"
                      fileOperations([folderCreateOperation(folderPath: path)])
-                     filesByGlob = findFiles(glob: "**function**");
+                     cd path
+                     pwd
+                     filesByGlob = findFiles(glob: "*function*");
                      echo "${filesByGlob}"
                      sh 'ls'
                      sh 'python3 --version'
