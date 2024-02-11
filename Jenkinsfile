@@ -17,17 +17,16 @@ pipeline {
                      files.each { f -> 
                       if (f.directory) {
                          echo "This is a directory: ${f.name}"
+                         dirname = f.directory
                          if(f.name != '.git')
                          {
-                          echo "inside loop: ${f.name}"
-                          sh "cd ${workspace}/${f.name}/"
+                          echo "inside loop: ${dirname}"
+                          sh "cd ${workspace}/${dirname}/"
                           sh 'pwd'
                           sh 'ls'
                          }
                       }
                     }
-                     //echo "${files}"
-                     sh 'ls'
                      sh 'python3 --version'
                 }
             }
