@@ -20,7 +20,8 @@ pipeline {
                          if(f.name != '.git')
                          {
                           echo "inside loop: ${f.name}"
-                          sh "cd ${f.name}"
+                          sh "cd ${f.name}/"
+                          sh 'pwd'
                           sh 'ls'
                          }
                       }
