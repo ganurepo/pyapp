@@ -16,10 +16,10 @@ pipeline {
                      files = findFiles();
                      files.each { f -> 
                       if (f.directory) {
-                         echo "This is a directory: ${f.name}"
-                         dirname = f.directory
+                         
                          if(f.name != '.git')
                          {
+                          dirname = f.name
                           echo "inside loop: ${dirname}"
                           sh "cd ${workspace}/${dirname}/"
                           sh 'pwd'
