@@ -22,6 +22,11 @@ pipeline {
                           dirname = f.name
                           echo "inside loop: ${dirname}"
                           sh "cd ${workspace}/${dirname}/"
+                          sh """ 
+                          #!/bin/bash
+                          cd ${dirname}
+                          ls -l
+                          """ 
                           sh 'pwd'
                           sh 'ls'
                          }
