@@ -7,9 +7,7 @@ pipeline {
                 echo 'building..'
                 sh 'pwd'
                 sh 'mkdir -p builds/packages'
-                sh 'cd builds'
-                sh 'pip install -r requirements.txt -t packages'
-                sh 'ls packages'              
+                sh 'pip install -r requirements.txt -t builds/packages'              
                 script {
                      def path = "${workspace}\builds"
                      files = findFiles();
@@ -24,7 +22,10 @@ pipeline {
                           #!/bin/bash
                           pwd
                           cd builds
-                          ls -l
+                          mkdir ${dirname}
+                          pwd
+                          cd ${workspace}
+                          pwd
                           """ 
                           sh 'pwd'
                           sh 'ls'
