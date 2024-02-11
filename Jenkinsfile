@@ -5,14 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building..'
-                sh 'pwd'               
+                sh 'pwd'
+                sh 'mkdir -p builds/packages'
+                sh 'cd builds'
+                sh 'pip install -r requirements.txt /packages'
+                sh 'ls packages'              
                 script {
                      def path = "${workspace}\builds"
-                     fileOperations([folderCreateOperation(folderPath: path)])
-                     echo '${path}'
-                     pwd
-                     
-                     
                      files = findFiles();
                      files.each { f -> 
                       if (f.directory) {
@@ -21,10 +20,10 @@ pipeline {
                          {
                           dirname = f.name
                           echo "inside loop: ${dirname}"
-                          sh "cd ${workspace}/${dirname}/"
                           sh """ 
                           #!/bin/bash
-                          cd ${dirname}
+                          mkdir ${dirname}
+                          
                           ls -l
                           """ 
                           sh 'pwd'
