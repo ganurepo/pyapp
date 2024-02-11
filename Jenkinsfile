@@ -22,8 +22,8 @@ pipeline {
                           echo "inside loop: ${dirname}"
                           sh """ 
                           #!/bin/bash
-                          mkdir ${dirname}
-
+                          pwd
+                          cd builds
                           ls -l
                           """ 
                           sh 'pwd'
